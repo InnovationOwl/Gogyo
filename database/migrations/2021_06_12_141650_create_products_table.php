@@ -15,13 +15,25 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('product_uuid');
+            $table->uuid('product_uuid');
             $table->string('product_code');
             $table->double('price');
-            $table->double('discount_price');
-            $table->dateTime('start_dt')->nullable();
-            $table->dateTime('expiry_dt')->nullable();
+            $table->double('discount_price')->nullable();
+            $table->integer('qty');
+            $table->integer('mini_order_qty')->nullable();
+            $table->integer('alert_qty')->nullable();
+            $table->integer('coming_soon')->nullable();
+            $table->integer('special_product')->nullable();
+            $table->integer('hot_product')->nullable();
+            $table->integer('new_product')->nullable();
+            $table->integer('sale_product')->nullable();
             $table->integer('status', 2);
+            $table->string('youtube_link')->nullable();
+            $table->float('weight')->nullable();
+            $table->float('height')->nullable();
+            $table->float('width')->nullable();
+            $table->text('remarks')->nullable();
+            $table->datetime('promotion_expiry_dt');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();

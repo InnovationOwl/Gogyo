@@ -15,12 +15,12 @@ class CreatePackageTable extends Migration
     {
         Schema::create('package', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('coupon_uuid');
-            $table->string('coupon_code');
-            $table->string('discount')->nullable();
+            $table->bigInteger('products_id');
+            $table->uuid('package_uuid');
+            $table->uuid('products_uuid');
+            $table->string('package_name')->nullable();
             $table->string('amount')->nullable();
-            $table->dateTime('start_dt')->nullable();
-            $table->dateTime('expiry_dt')->nullable();
+            $table->float('price');
             $table->integer('status', 2);
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();

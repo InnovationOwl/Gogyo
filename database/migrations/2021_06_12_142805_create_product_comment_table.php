@@ -15,6 +15,7 @@ class CreateProductCommentTable extends Migration
     {
         Schema::create('product_comment', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('product_comment_uuid');
             $table->timestamps();
         });
     }

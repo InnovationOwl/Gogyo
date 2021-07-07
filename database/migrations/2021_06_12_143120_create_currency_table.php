@@ -15,7 +15,16 @@ class CreateCurrencyTable extends Migration
     {
         Schema::create('currency', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('currency_uuid');
+            $table->string('name');
+            $table->string('code');
+            $table->string('base');
+            $table->float('ratio', 2);
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('deleted_by')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
