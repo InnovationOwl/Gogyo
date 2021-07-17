@@ -38,13 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'members',
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
+            'driver' => 'passport',
+            'provider' => 'users'
         ],
     ],
 
@@ -68,13 +67,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'members' => [
+             'driver' => 'eloquent',
+             'model' => App\Models\Member::class,
+         ],
     ],
 
     /*

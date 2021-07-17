@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductUnitTable extends Migration
+class CreateOauthPersonalAccessClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateProductUnitTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_unit', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('product_unit_uuid');
-            $table->json('name')->nullable();
-            $table->integer('status');
+        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('client_id')->index();
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -30,6 +27,6 @@ class CreateProductUnitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_unit');
+        Schema::dropIfExists('oauth_personal_access_clients');
     }
 }

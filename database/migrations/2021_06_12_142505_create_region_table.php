@@ -15,14 +15,13 @@ class CreateRegionTable extends Migration
     {
         Schema::create('region', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('region_uuid');
+            $table->uuid('region_uuid');
             $table->string('code');
-            $table->string('name');
-            $table->string('lang');
-            $table->integer('status', 2);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->json('name');
+            $table->integer('status');
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -16,7 +16,15 @@ class CreateProductCommentTable extends Migration
         Schema::create('product_comment', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('product_comment_uuid');
+            $table->uuid('product_uuid');
+            $table->uuid('member_uuid');
+            $table->text('comment');
+            $table->float('score');
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

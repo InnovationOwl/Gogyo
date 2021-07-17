@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogLangTable extends Migration
+class CreateCartDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateBlogLangTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_lang', function (Blueprint $table) {
+        Schema::create('cart_detail', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('cart_detail_uuid');
+            $table->uuid('cart_uuid');
+            $table->uuid('product_uuid');
+            $table->integer('qty');
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -30,6 +30,6 @@ class CreateBlogLangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_lang');
+        Schema::dropIfExists('cart_detail');
     }
 }

@@ -18,11 +18,10 @@ class CreateCurrencyTable extends Migration
             $table->uuid('currency_uuid');
             $table->string('name');
             $table->string('code');
-            $table->string('base');
-            $table->float('ratio', 2);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->float('ratio', 13, 2);
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

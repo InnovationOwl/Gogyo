@@ -21,10 +21,10 @@ class CreateCouponTable extends Migration
             $table->string('amount')->nullable();
             $table->dateTime('start_dt')->nullable();
             $table->dateTime('expiry_dt')->nullable();
-            $table->integer('status', 2);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->integer('status');
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

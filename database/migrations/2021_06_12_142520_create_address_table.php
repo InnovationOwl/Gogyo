@@ -15,9 +15,6 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('country_id');
-            $table->bigInteger('region_id');
-            $table->bigInteger('city_id');
             $table->uuid('address_uuid');
             $table->uuid('country_uuid');
             $table->uuid('region_uuid');
@@ -30,9 +27,9 @@ class CreateAddressTable extends Migration
             $table->string('building');
             $table->string('street');
             $table->string('postal_code');
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

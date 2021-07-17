@@ -16,8 +16,8 @@ class CreateTransactionTable extends Migration
         Schema::create('transaction', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('transaction_uuid');
-            $table->string('payer_id')->nullable();
-            $table->float('mc_gross')->nullable();
+            $table->bigInteger('payer_id')->nullable()->unsigned();
+            $table->float('mc_gross', 13, 2)->nullable();
             $table->string('mc_currency')->nullable();
             $table->string('payment_type')->nullable();
             $table->string('payment_dt')->nullable();
@@ -34,9 +34,9 @@ class CreateTransactionTable extends Migration
             $table->string('pending_reason')->nullable();
             $table->string('transaction_subject')->nullable();
             $table->string('memo')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -15,16 +15,14 @@ class CreateCityTable extends Migration
     {
         Schema::create('city', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('country_id');
             $table->uuid('city_uuid');
             $table->uuid('country_uuid')->nullable();
-            $table->string('name');
+            $table->json('name');
             $table->string('code');
-            $table->string('lang')->nullable();
             $table->string('sequence')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

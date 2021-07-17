@@ -15,15 +15,12 @@ class CreateWishlistTable extends Migration
     {
         Schema::create('wishlist', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('member_id');
-            $table->bigInteger('products_id');
             $table->uuid('wishlist_uuid');
             $table->uuid('member_uuid');
             $table->uuid('product_uuid');
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

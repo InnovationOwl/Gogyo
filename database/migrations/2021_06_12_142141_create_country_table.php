@@ -15,16 +15,15 @@ class CreateCountryTable extends Migration
     {
         Schema::create('country', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('country_uuid');
+            $table->uuid('country_uuid');
             $table->string('two_digit_code');
             $table->string('three_digit_code');
-            $table->string('name');
+            $table->json('name');
             $table->string('code');
-            $table->string('lang');
-            $table->integer('status', 2);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->integer('status');
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

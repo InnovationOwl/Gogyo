@@ -15,17 +15,20 @@ class CreateBlogTable extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('blog_category_id');
             $table->uuid('blog_category_uuid');
             $table->uuid('blog_uuid');
+            $table->json('name')->nullable();
+            $table->json('desc')->nullable();
+            $table->json('meta_title')->nullable();
+            $table->json('meta_keywords')->nullable();
             $table->string('url')->nullable();
             $table->string('video_link')->nullable();
             $table->datetime('post_dt')->nullable();
             $table->integer('is_highlight')->nullable();
             $table->integer('status')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

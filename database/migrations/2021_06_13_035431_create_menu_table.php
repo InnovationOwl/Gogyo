@@ -15,17 +15,16 @@ class CreateMenuTable extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->id('menu_id');
             $table->uuid('parent_uuid');
             $table->uuid('menu_uuid');
             $table->string('code');
-            $table->string('name');
+            $table->json('name');
             $table->string('url');
-            $table->float('level');
-            $table->integer('status', 2);
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->string('level');
+            $table->integer('status');
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
+            $table->uuid('deleted_by')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
