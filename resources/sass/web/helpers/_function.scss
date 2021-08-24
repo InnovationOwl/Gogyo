@@ -1,0 +1,134 @@
+@mixin animate($time, $animation) {
+	-moz-animation-duration: $time;
+	-o-animation-duration: $time;
+	animation-duration: $time;
+	-webkit-animation-duration: $time;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-name: $animation;
+	-o-animation-name: $animation;
+	animation-name: $animation;
+	-webkit-animation-name: $animation;
+}
+
+@mixin transition_rotate_translateX($rotate, $posX) {
+	-webkit-transform: rotate($rotate) translateX($posX);
+	-moz-transform: rotate($rotate) translateX($posX);
+	-ms-transform: rotate($rotate) translateX($posX);
+	-o-transform: rotate($rotate) translateX($posX);
+	transform: rotate($rotate) translateX($posX);
+}
+
+
+@mixin transition_ease($time) {
+	-webkit-transition: all $time ease-in-out 0s;
+	-moz-transition: all $time ease-in-out 0s;
+	-o-transition: all $time ease-in-out 0s;
+	transition: all $time ease-in-out 0s;
+}
+
+@mixin transition_padding($time) {
+	-webkit-transition: padding $time ease 0s;
+	-moz-transition: padding $time ease 0s;
+	-o-transition: padding $time ease 0s;
+	transition: padding $time ease 0s;
+}
+
+@mixin transform_translateY($posY) {
+	-webkit-transform: translateY($posY);
+	-ms-transform: translateY($posY);
+	-o-transform: translateY($posY);
+	-moz-transform: translateY($posY);
+	transform: translateY($posY);
+}
+
+@mixin transform_translateX($posX) {
+	-webkit-transform: translateX($posX);
+	-ms-transform: translateX($posX);
+	-o-transform: translateX($posX);
+	-moz-transform: translateX($posX);
+	transform: translateX($posX);
+}
+
+@mixin transform_translate($posX, $posY) {
+	-webkit-transform: translateX($posX) translateY($posY);
+	-ms-transform: translateX($posX) translateY($posY);
+	-o-transform: translateX($posX) translateY($posY);
+	-moz-transform: translateX($posX) translateY($posY);
+	transform: translateX($posX) translateY($posY);
+}
+
+@mixin transform_translatez($posX, $posY, $scale) {
+	-webkit-transform: translateX($posX) translateY($posY) scale($scale);
+	-ms-transform: translateX($posX) translateY($posY) scale($scale);
+	-o-transform: translateX($posX) translateY($posY) scale($scale);
+	-moz-transform: translateX($posX) translateY($posY) scale($scale);
+	transform: translateX($posX) translateY($posY) scale($scale);
+}
+
+@mixin transform_scale($scaleW, $scaleH) {
+	-webkit-transform: scale($scaleW, $scaleH);
+	-ms-transform: scale($scaleW, $scaleH);
+	-o-transform: scale($scaleW, $scaleH);
+	-moz-transform: scale($scaleW, $scaleH);
+	transform: scale($scaleW, $scaleH);
+}
+
+@mixin transform_rotate($rotate) {
+	-webkit-transform: rotate($rotate);
+	-ms-transform: rotate($rotate);
+	-o-transform: rotate($rotate);
+	-moz-transform: rotate($rotate);
+	transform: rotate($rotate);
+}
+
+@mixin transform_3d_rotate($x, $y, $z,$rotate) {
+	-webkit-transform: translate3d($x, $y, $z) rotate($rotate);
+	-ms-transform: translate3d($x, $y, $z) rotate($rotate);
+	-o-transform: translate3d($x, $y, $z) rotate($rotate);
+	-moz-transform: translate3d($x, $y, $z) rotate($rotate);
+	transform: translate3d($x, $y, $z) rotate($rotate);
+}
+
+
+@mixin border_circle {
+	border-radius: 50%;
+}
+
+@mixin border_radius($radius) {
+	border-radius: $radius;
+}
+
+@mixin width_radius ($width_radius) {
+	width: $width_radius;
+	height: $width_radius;
+	line-height: $width_radius;
+	text-align: center;
+}
+
+@mixin asblute {
+	opacity: 0;
+	visibility: hidden;
+	@include transform_translateY(50px);
+	@include transition_ease(0.3s);
+	position: absolute;
+}
+
+@mixin tag_hover {
+	opacity: 1;
+	visibility: visible;
+	@include transform_translateY(0);
+	@include transition_ease(0.6s);
+	z-index: 5;
+}
+
+@mixin tranform_transis($x, $y, $s) {
+	-webkit-transform: translateX($x) translateY($y) scale($s);
+	-moz-transform: translateX($x) translateY($y) scale($s);
+	-ms-transform: translateX($x) translateY($y) scale($s);
+	-o-transform: translateX($x) translateY($y) scale($s);
+	transform: translateX($x) translateY($y) scale($s);
+	@include transition_ease(0.4s);
+}

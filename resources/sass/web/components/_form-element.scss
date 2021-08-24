@@ -1,0 +1,18 @@
+.select-1 {
+    .v-input__control {
+        min-height: auto!important;
+    }
+    .v-input__slot {
+        box-shadow: 0px 0px 0px 0px!important;
+        background-color: transparent!important;
+        .v-select__selection {
+            color: #fff!important;
+        }
+        i {
+            &:before {
+                content: "\F140"!important;
+                color: red!important;
+            }
+        }
+    }
+}

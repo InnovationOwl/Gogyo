@@ -1,0 +1,9 @@
+button {
+    &.button-1 {
+        background-color: $main-color!important;
+        border-radius: 30px!important;
+        color: $white!important;
+        font-size: 16px!important;
+        text-align: center!important;
+    }
+}

@@ -1,0 +1,30 @@
+// @import "node_modules/bootstrap/scss/bootstrap";
+// @import "node_modules/bootstrap-vue/src/index.scss";
+// Import Helpers Folder Scss
+@import "assets/_variables";
+@import 'helpers/_variable';
+@import 'helpers/_function';
+// Import vendor Folder Scss
+// @import 'vendor/_animate.scss';
+// @import 'vendor/_font-awesome.scss';
+// @import 'vendor/_iconmonstr-iconic-font.scss';
+// @import 'vendor/_linearicons.scss';
+// Import Base Folder Scss
+@import 'base/_init';
+@import 'base/_common';
+// Import Components Folder Scss
+@import 'components/_color';
+@import 'components/_font';
+@import 'components/_icon';
+@import 'components/_label';
+@import 'components/_button';
+@import 'components/_heading';
+@import 'components/_form-element';
+// Import Layout Folder Scss
+@import 'layout/_form';
+@import 'layout/_table';
+@import 'layout/_menu';
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'layout/_nav';
+@import 'layout/_calendar';
